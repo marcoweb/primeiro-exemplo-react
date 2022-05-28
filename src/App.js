@@ -4,6 +4,7 @@ import ContadorClass from './components/ContadorClass';
 import Calculadora from './components/Calculadora';
 import './App.css'
 import { useEffect, useState } from 'react';
+import CalculadoraComp from './components/CalculadoraComp';
 
 function App() {
   const [valor, setValor] = useState(0)
@@ -24,6 +25,8 @@ function App() {
       <Contador valor={valor} click={contar}/>
       <ContadorClass />
       <Calculadora />
+      <hr />
+      <CalculadoraComp />
     </div>
   );
 }
