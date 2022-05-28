@@ -5,6 +5,7 @@ import Calculadora from './components/Calculadora';
 import './App.css'
 import { useEffect, useState } from 'react';
 import CalculadoraComp from './components/CalculadoraComp';
+import ExemploContext from './components/ExemploContext';
 
 function App() {
   const [valor, setValor] = useState(0)
@@ -19,15 +20,21 @@ function App() {
     console.log('alterado : ' + alterado)
   },[valor])
 
+  const Contexto = React.createContext('Teste')
+
   return (
-    <div className='Container' >
-      <Ola />
-      <Contador valor={valor} click={contar}/>
-      <ContadorClass />
-      <Calculadora />
-      <hr />
-      <CalculadoraComp />
-    </div>
+    <Contexto.Provider>
+      <div className='Container' >
+        <Ola />
+        <Contador valor={valor} click={contar}/>
+        <ContadorClass />
+        <Calculadora />
+        <hr />
+        <CalculadoraComp />
+        <hr />
+
+      </div>
+    </Contexto.Provider>
   );
 }
 
