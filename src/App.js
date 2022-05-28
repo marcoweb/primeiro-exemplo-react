@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Ola from './components/Ola';
+import Contador from './components/Contador';
+import ContadorClass from './components/ContadorClass';
+import Calculadora from './components/Calculadora';
+import './App.css'
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [valor, setValor] = useState(0)
+  const [alterado, setAlterado] = useState(0)
+
+  function contar() {
+    setValor(valor - 1)
+  }
+
+  useEffect(() => {
+    setAlterado(alterado + 1)
+    console.log('alterado : ' + alterado)
+  },[valor])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='Container' >
+      <Ola />
+      <Contador valor={valor} click={contar}/>
+      <ContadorClass />
+      <Calculadora />
     </div>
   );
 }
